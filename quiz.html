@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HEHE</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1 style="color: #ff6b6b; font-size: 24px; text-align: center;">Ask Vina for the password HAHAHA</h1>
+    <form id="passwordForm" action="letter.html" method="post" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);">
+        <label for="answer" style="display: block; margin-bottom: 10px;">Password....</label>
+        <input type="text" id="answer" name="answer" required style="width: 90%; padding: 15px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+        <button type="submit" style="background-color: #ff6b6b; color: #fff; border: none; border-radius: 5px; padding: 15px 30px; cursor: pointer; transition: background-color 0.3s; display: block; margin: 0 auto;">Submit</button>
+    </form>
+
+    <div id="quizSection" style="display: none;">
+        <h2 style="color: #ff6b6b; font-size: 24px; text-align: center;">Login please...</h2>
+        <form id="quizForm" action="result.html" method="post" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);">
+            <label for="quizAnswer" style="display: block; margin-bottom: 10px;">Username</label>
+            <p style="font-size: smaller;">Hint: lowercase only</p>
+            <input type="text" id="quizAnswer" name="quizAnswer" required style="width: 90%; padding: 15px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <button type="submit" style="background-color: #ff6b6b; color: #fff; border: none; border-radius: 5px; padding: 15px 30px; cursor: pointer; transition: background-color 0.3s; display: block; margin: 0 auto;">Next</button>
+        </form>
+    </div>
+
+    <div id="quizSection2" style="display: none;">
+        <h2 style="color: #ff6b6b; font-size: 24px; text-align: center;"></h2>
+        <form id="quizForm2" action="result2.html" method="post" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);">
+            <label for="quizAnswer2" style="display: block; margin-bottom: 10px;">Password?</label>
+            <p style="font-size: smaller;">Hint: lowercase only</p>
+            <input type="text" id="quizAnswer2" name="quizAnswer2" required style="width: 90%; padding: 15px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;">
+            <button type="submit" style="background-color: #ff6b6b; color: #fff; border: none; border-radius: 5px; padding: 15px 30px; cursor: pointer; transition: background-color 0.3s; display: block; margin: 0 auto;">Submit Answer</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("passwordForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var password = document.getElementById("answer").value;
+
+            if (password === "ILoveYou") {
+                document.getElementById("quizSection").style.display = "block";
+            } else {
+                window.location.href = "wrong.html";
+            }
+        });
+
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var quizAnswer = document.getElementById("quizAnswer").value;
+
+            if (quizAnswer === "kenziethor21") {
+                document.getElementById("quizSection").style.display = "none";
+                document.getElementById("quizSection2").style.display = "block";
+            } else {
+                window.location.href = "wrong.html";
+            }
+        });
+
+        document.getElementById("quizForm2").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var quizAnswer2 = document.getElementById("quizAnswer2").value;
+
+            if (quizAnswer2 === "23november2021") {
+                window.location.href = "letter.html";
+            } else {
+                window.location.href = "wrong.html";
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Photo and Video Gallery</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+            width: 300px;
+        }
+
+        .media {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Photo and Video Gallery</h1>
+
+    <script>
+        // Function to shuffle an array randomly
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Define an array with container IDs
+        const containerIds = [
+            'container1', 'container2', 'container3', 'container4', 'container5',
+            'container6', 'container7', 'container8', 'container9', 'container10'
+        ];
+
+        // Shuffle the order of container IDs
+        shuffleArray(containerIds);
+
+        // Append shuffled containers back to the body
+        const body = document.body;
+        containerIds.forEach(id => {
+            const container = document.getElementById(id);
+            body.appendChild(container);
+        });
+    </script>
+
+    <div class="container" id="container1">
+        <h2>Photo 1</h2>
+        <img class="media" src="photo1.jpg" alt="Photo 1">
+    </div>
+
+    <div class="container" id="container2">
+        <h2>Video 1</h2>
+        <video class="media" controls>
+            <source src="video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="container" id="container3">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div class="container" id="container4">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div class="container" id="container5">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div class="container" id="container6">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div class="container" id="container7">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div class="container" id="container8">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div class="container" id="container9">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+    <div class="container" id="container10">
+        <h2>Photo 2</h2>
+        <img class "media" src="photo2.jpg" alt="Photo 2">
+    </div>
+
+    <!-- Add more containers for photos and videos as needed with unique IDs -->
+</body>
+</html>
+

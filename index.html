@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday Kenzie!</h1>
+        <img src="bday21.jpeg" alt="Birthday Cake">
+        <p>
+            Wishing you a day filled with laughter, love, and all the happiness in the world.
+            May this year be the best one yet!
+        </p>
+        <p>With love and warm wishes,</p>
+        <p>Vina</p>
+
+        <!-- Countdown timer -->
+        <div id="countdown" style="margin-top: 20px;"></div>
+
+        <!-- Button to start the quiz -->
+        <button type="button" style="background-color: #ff6b6b; color: #fff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer; transition: background-color 0.3s; display: block; margin: 10px auto;" onclick="startQuiz()">Can't wait for the countdown?</button></button>
+
+        <!-- Quiz section (initially hidden) -->
+        <div id="quizSection" style="display: none; margin-top: 20px;">
+            
+            <p>Try this quiz:</p>
+            <form id="quizForm">
+                <label for="quizAnswer">I have combination of numbers in mind, what is it?</label>
+                <input type="text" id="quizAnswer" name="quizAnswer" required>
+                <button type="button" style="background-color: #ff6b6b; color: #fff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer; transition: background-color 0.3s; display: block; margin: 10px auto;" onclick="checkAnswer()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Set the target date and time in AEDT (UTC+11) format
+        var targetDate = new Date("2023-11-21T11:45:00+11:00").getTime();
+
+        // Function to update the countdown timer
+        function updateCountdown() {
+            var currentDate = new Date().getTime();
+            var timeLeft = targetDate - currentDate;
+
+            // Check if the target date and time have passed
+            if (timeLeft <= 0) {
+                // Redirect to the target page when the time is up
+                window.location.href = "page2.html";
+            } else {
+                // Calculate days, hours, minutes, and seconds
+                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                // Display the countdown
+                var countdownElement = document.getElementById("countdown");
+                countdownElement.innerHTML = "Redirecting in: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+            }
+        }
+
+        // Function to start the quiz
+        function startQuiz() {
+            document.getElementById("countdown").style.display = "block";
+            document.getElementById("quizSection").style.display = "block";
+        }
+
+        // Function to check the quiz answer
+        function checkAnswer() {
+            var answer = document.getElementById("quizAnswer").value;
+
+            // Check if the answer is correct (e.g., "42")
+            if (answer === "5201314") {
+                // Redirect to the target page if the answer is correct
+                window.location.href = "page2.html";
+            } else {
+                // Redirect to the "wrong" page if the answer is wrong
+                window.location.href = "wrong2.html";
+            }
+        }
+
+        // Update the countdown timer every second
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f7e1e1;
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+h1 {
+    color: #ff6b6b;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 10px;
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+p:last-child {
+    font-weight: bold;
+}
+
+.game-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: none; /* Hidden by default */
+}
+
+h2 {
+    color: #ff6b6b;
+    font-size: 24px;
+}
+
+#question {
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Add the following styles to your CSS */
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    text-decoration: none; /* Remove underline from links */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #f34d4d;
+}
+
+p {
+    margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+.all_button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none; /* Remove underline from links */
+    margin-top: 20px;
+}
+
+.next-button:hover {
+    background-color: #0056b3;
+}
+
+/* Other CSS styles for your container, h1, and p */
+.container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+h1 {
+    color: #ff6b6b;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #333;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Add CSS styles for the image placeholders */
+.image-placeholder {
+    width: 200px; /* Set the width of the image placeholder */
+    height: 200px; /* Set the height of the image placeholder */
+    background-color: #ccc; /* Set a background color for the placeholder */
+    margin-top: 20px; /* Add margin to create space between image placeholders and buttons */
+    border: 2px dashed #999; /* Add a dashed border for a placeholder effect */
+}

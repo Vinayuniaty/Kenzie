@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic-Tac-Toe Game</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(https://img.freepik.com/free-vector/elegant-balloon-background_53876-98912.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1697846400&semt=ais);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; /* Use 'cover' to make the background image cover the entire page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha (0.7) for transparency */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 24px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 36px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha (0.7) for cell transparency */
+        }
+
+        .cell:hover {
+            background-color: #f7e1e1;
+        }
+
+        #message {
+            color: #ff6b6b;
+            font-size: 20px;
+        }
+
+        p {
+    color: #ff6b6b;
+    font-size: 24px;
+    position: absolute;
+    top: 10px; /* Adjust the top value to position it at the top */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+}
+
+
+    </style>
+</head>
+<body>
+    <p>I Love You Kenzie!</p> 
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+       
+        <div id="message"></div>
+        <table>
+            <tr>
+                <td class="cell" onclick="makeMove(this)"></td>
+                <td class="cell" onclick="makeMove(this)"></td>
+                <td class="cell" onclick="makeMove(this)"></td>
+            </tr>
+            <tr>
+                <td class="cell" onclick="makeMove(this)"></td>
+                <td class="cell" onclick="makeMove(this)"></td>
+                <td class="cell" onclick="makeMove(this)"></td>
+            </tr>
+            <tr>
+                <td class="cell" onclick="makeMove(this)"></td>
+                <td class="cell" onclick="makeMove(this)"></td>
+                <td class="cell" onclick="makeMove(this)"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let currentPlayer = "X";
+        let cells = document.querySelectorAll(".cell");
+        let message = document.getElementById("message");
+        let gameOver = false;
+
+        function makeMove(cell) {
+            if (!cell.innerHTML && !message.innerHTML && !gameOver) {
+                cell.innerHTML = currentPlayer;
+                checkWinner();
+                if (!gameOver) {
+                    currentPlayer = currentPlayer === "X" ? "O" : "X";
+                    makeComputerMove();
+                }
+            }
+        }
+
+        function checkWinner() {
+            const winningCombos = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]             // Diagonals
+            ];
+
+            for (const combo of winningCombos) {
+                const [a, b, c] = combo;
+                if (cells[a].innerHTML && cells[a].innerHTML === cells[b].innerHTML && cells[a].innerHTML === cells[c].innerHTML) {
+                    message.innerHTML = `Player ${cells[a].innerHTML} wins!`;
+                    gameOver = true;
+                    if (cells[a].innerHTML === "X") {
+                        // Redirect to blank1.html if player X wins
+                        window.location.href = "blank1.html"; }
+                        else if (cells[a].innerHTML === "O") {
+                // Redirect to the "sorrybabe.html" page if player O (computer) wins
+                window.location.href = "sorry.html";
+            }
+                }
+            }
+        }
+
+        function makeComputerMove() {
+            if (!gameOver) {
+                const emptyCells = [...cells].filter(cell => !cell.innerHTML);
+                if (emptyCells.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+                    emptyCells[randomIndex].innerHTML = currentPlayer;
+                    checkWinner();
+                    if (!gameOver) {
+                        currentPlayer = currentPlayer === "X" ? "O" : "X";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
